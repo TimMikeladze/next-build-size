@@ -8,7 +8,7 @@ import { writePageSizes } from './writePageSizes';
   program
     .name('next-build-size')
     .description('Get the page sizes and other stats of a Next.js app')
-    .version('1.0.1');
+    .version('1.0.2');
 
   program
     .command('stats')
