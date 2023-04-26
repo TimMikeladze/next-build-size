@@ -1,0 +1,92 @@
+{
+  "name": "next-build-size",
+  "description": "Get the size of your Next.js app's build output. Use it in your CI workflows to prevent your app from growing too large.",
+  "version": "1.0.1",
+  "author": "Tim Mikeladze <tim.mikeladze@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "next",
+    "nextjs",
+    "next.js",
+    "build",
+    "size",
+    "bundle",
+    "analyze"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:TimMikeladze/next-build-size.git"
+  },
+  "files": [
+    "./dist"
+  ],
+  "source": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "default": "./dist/index.modern.js"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.module.js",
+  "unpkg": "./dist/index.umd.js",
+  "bin": "./dist/cli.module.js",
+  "scripts": {
+    "dev": "microbundle watch src/{index,cli}.ts --target node -f modern",
+    "build": "rm -rf dist && microbundle src/{index,cli}.ts",
+    "lint": "eslint --fix \"{src,__tests__}/**/*.+(ts|tsx|js|jsx)\" && prettier --write .",
+    "test": "yarn node --experimental-vm-modules $(yarn bin jest) --passWithNoTests",
+    "test:ci": "yarn test --ci --coverage",
+    "type-check": "tsc",
+    "release": "release-it",
+    "commit": "commit-it",
+    "cli": "yarn build -f modern && node dist/cli.modern.js"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "🔖 | v${version}"
+    },
+    "github": {
+      "release": true
+    },
+    "npm": {
+      "publish": false
+    }
+  },
+  "lint-staged": {
+    "**/*.{ts,js,jsx,tsx}": "eslint --fix",
+    "*": "prettier --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "devDependencies": {
+    "@types/jest": "29.5.0",
+    "@types/node": "18.15.11",
+    "@typescript-eslint/eslint-plugin": "5.58.0",
+    "@typescript-eslint/parser": "5.58.0",
+    "commit-it": "0.0.11",
+    "dotenv": "16.0.3",
+    "eslint": "8.38.0",
+    "eslint-config-standard": "17.0.0",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-n": "15.7.0",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "6.1.1",
+    "eslint-plugin-typescript-sort-keys": "2.3.0",
+    "husky": "8.0.3",
+    "jest": "29.5.0",
+    "lint-staged": "13.2.1",
+    "microbundle": "0.15.1",
+    "prettier": "2.8.7",
+    "release-it": "15.10.1",
+    "ts-jest": "29.1.0",
+    "typescript": "5.0.4"
+  },
+  "dependencies": {},
+  "resolutions": {
+    "yaml": ">=2.2.2"
+  }
+}

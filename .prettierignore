@@ -1,0 +1,10 @@
+dist
+coverage
+*.lock
+*.snap
+.prettierignore
+.env.template
+.gitignore
+.husky/**
+.npmrc
+artifacts
