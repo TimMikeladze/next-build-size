@@ -1,14 +1,14 @@
 #!/usr/bin/env node
-import { Command } from 'commander';
-import { writePageSizes } from './writePageSizes';
+import { Command } from 'commander'
+import { writePageSizes } from './writePageSizes'
 
-(async () => {
-  const program = new Command();
+;(async () => {
+  const program = new Command()
 
   program
     .name('next-build-size')
     .description('Get the page sizes and other stats of a Next.js app')
-    .version('1.0.2');
+    .version('1.0.2')
 
   program
     .command('stats')
@@ -25,14 +25,14 @@ import { writePageSizes } from './writePageSizes';
     .action((nextDir, options) => {
       const { filePath } = writePageSizes({
         nextDir,
-        output: options.output,
-      });
-      console.log(`Writing stats to ${filePath}`);
-    });
+        output: options.output
+      })
+      console.log(`Writing stats to ${filePath}`)
+    })
 
-  program.command('cli');
+  program.command('cli')
 
-  program.parse();
+  program.parse()
 
-  process.exit(0);
-})();
+  process.exit(0)
+})()

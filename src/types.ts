@@ -1,20 +1,20 @@
-export type BuildManifest = {
-  ampDevFiles: any[];
-  ampFirstPages: any[];
-  devFiles: any[];
-  lowPriorityFiles: string[];
-  pages: Pages;
-  polyfillFiles: string[];
-  rootMainFiles: any[];
-};
+export type Pages = Record<string, string[]>
 
-export type Pages = Record<string, string[]>;
+export type BuildManifest = {
+  ampDevFiles: any[]
+  ampFirstPages: any[]
+  devFiles: any[]
+  lowPriorityFiles: string[]
+  pages: Pages
+  polyfillFiles: string[]
+  rootMainFiles: any[]
+}
 
 export type GetPageSizesArgs = {
-  nextDir?: string;
-};
+  nextDir?: string
+}
 
 export type WritePageSizeArgs = {
-  nextDir: string;
-  output: string;
-};
+  nextDir: string
+  output: string
+}

@@ -1,2 +1,2 @@
-export * from './getPageSizes';
-export * from './types';
+export * from './getPageSizes'
+export * from './types'
