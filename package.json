@@ -33,14 +33,14 @@
   "bin": "./dist/cli.module.js",
   "scripts": {
     "dev": "microbundle watch src/{index,cli}.ts --target node -f modern",
-    "build": "rm -rf dist && microbundle src/{index,cli}.ts",
+    "build": "rm -rf dist && microbundle src/{index,cli}.ts --target node",
     "lint": "eslint --fix \"{src,__tests__}/**/*.+(ts|tsx|js|jsx)\" && prettier --write .",
     "test": "yarn node --experimental-vm-modules $(yarn bin jest) --passWithNoTests",
     "test:ci": "yarn test --ci --coverage",
     "type-check": "tsc",
     "release": "release-it",
     "commit": "commit-it",
-    "cli": "yarn build -f modern && node dist/cli.modern.js"
+    "cli": "yarn build  --target node -f modern && node dist/cli.modern.js"
   },
   "release-it": {
     "git": {
