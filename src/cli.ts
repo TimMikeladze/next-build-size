@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 import { Command } from 'commander'
 import { writePageSizes } from './writePageSizes'
-
 ;(async () => {
   const program = new Command()
 
