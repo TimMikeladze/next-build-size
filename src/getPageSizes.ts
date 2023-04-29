@@ -1,7 +1,7 @@
 import fs from 'fs'
-import path, { resolve } from 'path'
+import path, {resolve} from 'path'
 import zlib from 'zlib'
-import { BuildManifest, GetPageSizesArgs } from './types'
+import {BuildManifest, GetPageSizesArgs} from './types'
 
 export const getPageSizes = (
   args: GetPageSizesArgs
@@ -29,12 +29,10 @@ export const getPageSizes = (
     return { filePath, size }
   })
 
-  const pageSizesMap = pageSizes.reduce((acc, { filePath, size }) => {
+  return pageSizes.reduce((acc, {filePath, size}) => {
     acc[filePath] = formatBytes(size)
     return acc
   }, {} as Record<string, string>)
-
-  return pageSizesMap
 }
 
 const formatBytes = (bytes: number, decimals = 2) => {
@@ -43,15 +41,15 @@ const formatBytes = (bytes: number, decimals = 2) => {
   const k = 1024
   const dm = decimals < 0 ? 0 : decimals
   const sizes = [
-    'Bytes',
-    'KiB',
-    'MiB',
-    'GiB',
-    'TiB',
-    'PiB',
-    'EiB',
-    'ZiB',
-    'YiB'
+    'B',
+    'KB',
+    'MB',
+    'GB',
+    'TB',
+    'PB',
+    'EB',
+    'ZB',
+    'YB'
   ]
 
   const i = Math.floor(Math.log(bytes) / Math.log(k))

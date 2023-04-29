@@ -7,14 +7,15 @@ import { writePageSizes } from './writePageSizes'
   program
     .name('next-build-size')
     .description('Get the page sizes and other stats of a Next.js app')
-    .version('1.0.3')
+    .version('1.0.4')
 
   program
     .command('stats')
     .description('Get the page sizes and other stats of a Next.js app')
     .argument(
-      '<nextDir>',
-      'Path to a directory containing a .next folder, this is typically the root of your Next.js app after running `next build`'
+      '[nextDir]',
+      'Path to a .next folder, this is typically the root of your Next.js app after running `next build`',
+      '.next'
     )
     .option(
       '-o, --output <output>',
