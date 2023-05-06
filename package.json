@@ -30,7 +30,7 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.module.js",
   "unpkg": "./dist/index.umd.js",
-  "bin": "./dist/cli.module.js",
+  "bin": "./dist/cli.modern.js",
   "scripts": {
     "dev": "microbundle watch src/{index,cli}.ts --target node -f modern",
     "build": "rm -rf dist && microbundle src/{index,cli}.ts --target node",
@@ -40,7 +40,7 @@
     "type-check": "tsc",
     "release": "release-it",
     "commit": "commit-it",
-    "cli": "yarn build  --target node -f modern && node dist/cli.modern.js"
+    "cli": "yarn build --target node -f modern && node dist/cli.modern.js"
   },
   "release-it": {
     "git": {
