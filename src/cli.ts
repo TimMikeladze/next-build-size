@@ -19,7 +19,7 @@ export default sendToDiscord
   program
     .name('next-build-size')
     .description('Get the page sizes and other stats of a Next.js app')
-    .version('1.0.7')
+    .version('1.0.8')
 
   program
     .command('stats')
