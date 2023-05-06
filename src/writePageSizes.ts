@@ -27,6 +27,7 @@ export const writePageSizes = (args: WritePageSizeArgs) => {
   writeFileSync(filePath, JSON.stringify(pageSizes, null, 2))
 
   return {
-    filePath
+    filePath,
+    pageSizes
   }
 }

@@ -1,7 +1,7 @@
 {
   "name": "next-build-size",
   "description": "Get the size of your Next.js app's build output. Use it in your CI workflows to prevent your app from growing too large.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "Tim Mikeladze <tim.mikeladze@gmail.com>",
   "license": "MIT",
   "keywords": [
