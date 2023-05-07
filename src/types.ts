@@ -18,3 +18,10 @@ export type WritePageSizeArgs = {
   nextDir: string
   output: string
 }
+
+export type PageSizes = Record<string, string>
+
+export type CachePageSizesArgs = {
+  filePath: string
+  pageSizes: PageSizes
+}

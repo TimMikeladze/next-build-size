@@ -1,11 +1,9 @@
 import fs from 'fs'
-import path, {resolve} from 'path'
+import path, { resolve } from 'path'
 import zlib from 'zlib'
-import {BuildManifest, GetPageSizesArgs} from './types'
+import { BuildManifest, GetPageSizesArgs, PageSizes } from './types'
 
-export const getPageSizes = (
-  args: GetPageSizesArgs
-): Record<string, string> => {
+export const getPageSizes = (args: GetPageSizesArgs): PageSizes => {
   const nextDirPath = resolve(
     process.cwd(),
     args.nextDir ? args.nextDir : '.next'
@@ -29,7 +27,7 @@ export const getPageSizes = (
     return { filePath, size }
   })
 
-  return pageSizes.reduce((acc, {filePath, size}) => {
+  return pageSizes.reduce((acc, { filePath, size }) => {
     acc[filePath] = formatBytes(size)
     return acc
   }, {} as Record<string, string>)
@@ -40,17 +38,7 @@ const formatBytes = (bytes: number, decimals = 2) => {
 
   const k = 1024
   const dm = decimals < 0 ? 0 : decimals
-  const sizes = [
-    'B',
-    'KB',
-    'MB',
-    'GB',
-    'TB',
-    'PB',
-    'EB',
-    'ZB',
-    'YB'
-  ]
+  const sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
 
   const i = Math.floor(Math.log(bytes) / Math.log(k))
 

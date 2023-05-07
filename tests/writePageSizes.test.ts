@@ -5,12 +5,16 @@ describe('writePageSizes', () => {
   it('works', () => {
     const { filePath } = writePageSizes({
       nextDir: 'artifacts/nextjs-blog',
-      output: 'tests/next-build-size.json'
+      output: 'tests/next-build-size'
     })
 
-    const data = readFileSync(filePath, 'utf8')
+    const data = JSON.parse(readFileSync(filePath, 'utf8'))
 
-    expect(data).toBeTruthy()
+    expect(data).toMatchObject({
+      '/': expect.any(String),
+      '/_app': expect.any(String),
+      '/_error': expect.any(String)
+    })
 
     unlinkSync(filePath)
   })

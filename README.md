@@ -37,4 +37,3 @@ Options:
   -d, --discord <discord>  Send the stats to a Discord webhook
   -t, --title <title>      Title of the Discord message
 ```
-

@@ -85,7 +85,9 @@
     "ts-jest": "29.1.0",
     "typescript": "5.0.4"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@actions/cache": "3.2.1"
+  },
   "resolutions": {
     "yaml": ">=2.2.2"
   }

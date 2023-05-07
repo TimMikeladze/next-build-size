@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { Command } from 'commander'
 import { writePageSizes } from './writePageSizes'
+import { VERSION } from './constants'
 
 const sendToDiscord = async (url, body: { content: string }): Promise<void> => {
   await fetch(url, {
@@ -19,7 +20,7 @@ export default sendToDiscord
   program
     .name('next-build-size')
     .description('Get the page sizes and other stats of a Next.js app')
-    .version('1.0.8')
+    .version(VERSION)
 
   program
     .command('stats')
@@ -36,6 +37,10 @@ export default sendToDiscord
     )
     .option('-d, --discord <discord>', 'Send the stats to a Discord webhook')
     .option('-t, --title <title>', 'Title of the Discord message')
+    .option(
+      '-c, --cache',
+      'Save the stats in the Github Actions cache and compare them with the previous build'
+    )
     .action(async (nextDir, options) => {
       const { filePath, pageSizes } = writePageSizes({
         nextDir,
