@@ -1,7 +1,7 @@
 {
   "name": "next-build-size",
   "description": "Get the size of your Next.js app's build output. Use it in your CI workflows to prevent your app from growing too large.",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "author": "Tim Mikeladze <tim.mikeladze@gmail.com>",
   "license": "MIT",
   "keywords": [
@@ -30,9 +30,9 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.module.js",
   "unpkg": "./dist/index.umd.js",
-  "bin": "./dist/cli.modern.js",
+  "bin": "./dist/cli.module.js",
   "scripts": {
-    "dev": "microbundle watch src/{index,cli}.ts --target node -f modern",
+    "dev": "microbundle watch src/{index,cli}.ts --target node",
     "build": "rm -rf dist && microbundle src/{index,cli}.ts --target node",
     "lint": "eslint --fix \"{src,__tests__}/**/*.+(ts|tsx|js|jsx)\" && prettier --write .",
     "test": "yarn node --experimental-vm-modules $(yarn bin jest) --passWithNoTests",
@@ -40,7 +40,7 @@
     "type-check": "tsc",
     "release": "release-it",
     "commit": "commit-it",
-    "cli": "yarn build --target node -f modern && node dist/cli.modern.js"
+    "cli": "yarn build && node dist/cli.module.js"
   },
   "release-it": {
     "git": {

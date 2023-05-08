@@ -1,4 +1,4 @@
-import { getPageSizes } from '../src/getPageSizes'
+import { getPageSizes } from '../src'
 
 describe('getPageSizes', () => {
   it('works', () => {
@@ -8,6 +8,9 @@ describe('getPageSizes', () => {
 
     const first = Object.values(pageSizes)[0]
 
-    expect(first).toEqual(expect.any(String))
+    expect(first).toMatchObject({
+      filePath: expect.any(String),
+      size: expect.any(Number)
+    })
   })
 })

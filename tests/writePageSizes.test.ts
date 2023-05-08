@@ -1,5 +1,5 @@
 import { readFileSync, unlinkSync } from 'fs'
-import { writePageSizes } from '../src/writePageSizes'
+import { writePageSizes } from '../src'
 
 describe('writePageSizes', () => {
   it('works', () => {
@@ -10,11 +10,14 @@ describe('writePageSizes', () => {
 
     const data = JSON.parse(readFileSync(filePath, 'utf8'))
 
-    expect(data).toMatchObject({
-      '/': expect.any(String),
-      '/_app': expect.any(String),
-      '/_error': expect.any(String)
-    })
+    expect(data).toEqual(
+      expect.arrayContaining([
+        {
+          filePath: expect.any(String),
+          size: expect.any(Number)
+        }
+      ])
+    )
 
     unlinkSync(filePath)
   })

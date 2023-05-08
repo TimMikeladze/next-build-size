@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`comparePageSizes works 1`] = `
+{
+  "_404": {
+    "diff": "-9.77 KB",
+    "size": "19.53 KB",
+  },
+  "_app": {
+    "diff": "0 Bytes",
+    "size": "9.77 KB",
+  },
+  "_error": {
+    "diff": "+9.77 KB",
+    "size": "19.53 KB",
+  },
+}
+`;
